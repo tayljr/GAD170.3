@@ -1,9 +1,54 @@
 fileFormatVersion: 2
-guid: 02675dcfd520ca74bba06e925b1a6651
+guid: 220fb35e7af8ce9428cf79933f5b30b7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal
+    second: {fileID: 2100000, guid: cf7b06e154cb27f42930ea5e382a3b0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal.001
+    second: {fileID: 2100000, guid: 1b6daf51be69a5c4ab8b2e98824c689f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal.002
+    second: {fileID: 2100000, guid: 034a6eed9e81b0049aeb3f08b3136747, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal.003
+    second: {fileID: 2100000, guid: 8e11004eb9e68ee4eb8c49b5fa72f626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 3b5040bf28a390e4a864c7469c4b915a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GreenMetal
+    second: {fileID: 2100000, guid: 86f8d36fa5ec2c745ba5bd7b811933e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal02
+    second: {fileID: 2100000, guid: 3a133ce38d41bce429d24e3dc7e02e1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedMetal
+    second: {fileID: 2100000, guid: 78cfadf0571ffbc498beb01205177e12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: faddebbfd2e2d8247b51e87570b17812, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -24,7 +69,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5

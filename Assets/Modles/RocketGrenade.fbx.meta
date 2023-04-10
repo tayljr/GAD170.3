@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 02675dcfd520ca74bba06e925b1a6651
+guid: 38bc6ca5b66ad6c49aa55d4ade190c07
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal
+    second: {fileID: 2100000, guid: 0c1a99f0dbd9b854193df3c3099a69b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal.001
+    second: {fileID: 2100000, guid: 25f9f5ee1b0f92d41a1ba2cc7f3e0f85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMetal.003
+    second: {fileID: 2100000, guid: cece137635a15214695bda7663e43c5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GreenMetal
+    second: {fileID: 2100000, guid: 10cf2c8618d58244b8a7ce7b7285d8a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal02
+    second: {fileID: 2100000, guid: eeb1f9f9c860f9d4c9e5bfe8b59ca3e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -24,7 +49,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5

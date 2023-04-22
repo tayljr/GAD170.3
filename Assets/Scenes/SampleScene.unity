@@ -332,6 +332,11 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &288445935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6406409744750248104, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
+  m_PrefabInstance: {fileID: 6406409744494858047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &465933934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,10 +1381,10 @@ RectTransform:
   m_Father: {fileID: 1319261781}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -499, y: -297}
-  m_SizeDelta: {x: 659.2, y: 461.3}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -100, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606285079
 MonoBehaviour:
@@ -1673,7 +1678,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047225613}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 18f34b97656f66443a96f14d33fcb7d9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 08ba5647a80ce6b4e8cdf3cd33956bbc, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1686,12 +1691,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
@@ -1701,6 +1708,11 @@ VideoPlayer:
 --- !u!1 &919132148659954222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6064460190557875473, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
+  m_PrefabInstance: {fileID: 6406409744494858047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &919132148659954225 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 6406409743686886351, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
   m_PrefabInstance: {fileID: 6406409744494858047}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148885669428 stripped
@@ -1821,13 +1833,29 @@ PrefabInstance:
       value: RocketPickUp
       objectReference: {fileID: 0}
     - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
+      propertyPath: vpLink
+      value: 
+      objectReference: {fileID: 2047225615}
+    - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
       propertyPath: itemLink
       value: 
       objectReference: {fileID: 2758693650613058725}
     - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
+      propertyPath: aimerLink
+      value: 
+      objectReference: {fileID: 288445935}
+    - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
       propertyPath: popUpLink
       value: 
       objectReference: {fileID: 1431273961}
+    - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
+      propertyPath: tutorialLink
+      value: 
+      objectReference: {fileID: 1606285077}
+    - target: {fileID: 1873831357662358506, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
+      propertyPath: controllerLink
+      value: 
+      objectReference: {fileID: 919132148659954225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106c4ae8b2f75954e92871f6f7309c1b, type: 3}
 --- !u!1 &2758693650613058725 stripped
@@ -1918,6 +1946,10 @@ PrefabInstance:
     - target: {fileID: 6064460190557875473, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
       propertyPath: m_Name
       value: Chimp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6406409743686886351, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6406409743686886351, guid: c26951d2ec4333e4a800f0c2962e6ed8, type: 3}
       propertyPath: m_Center.x

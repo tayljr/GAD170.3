@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class PickUp : MonoBehaviour
 {
@@ -13,12 +14,17 @@ public class PickUp : MonoBehaviour
     public Vector2 popUpSize;
     public GameObject itemLink;
     public GameObject popUpLink;
+    public GameObject tutorialLink;
+    public GameObject aimerLink;
+    public VideoPlayer vpLink;
+    public CharacterController controllerLink;
     private bool touchingObject = false;
 
     // Start is called before the first frame update
     void Start()
     {
         popUpSize = new Vector2(popUpMinX, popUpMinY);
+        vpLink.loopPointReached += CheckOver;
     }
 
     // Update is called once per frame
@@ -35,8 +41,9 @@ public class PickUp : MonoBehaviour
             }
             if(Input.GetKeyDown("e")){
                 //Debug.Log("e");
-                itemLink.SetActive(true);
                 touchingObject = false;
+                tutorialLink.SetActive(true);
+                controllerLink.enabled = false;
                 gameObject.SetActive(false);
             }
         }else{
@@ -74,6 +81,17 @@ public class PickUp : MonoBehaviour
                 popUpSize.y -= popUpSpeed;
             }
             popUpLink.GetComponent< RectTransform >( ).sizeDelta = popUpSize;
+            //for(tutorialLink.activeSelf){
+            //if(Input.GetKeyDown("return")){
+            //    print("Enter");
+            //}
+            //}
         }
+    }
+    
+    void CheckOver(UnityEngine.Video.VideoPlayer vp){
+        itemLink.SetActive(true);
+        tutorialLink.SetActive(false);
+        controllerLink.enabled = true;
     }
 }

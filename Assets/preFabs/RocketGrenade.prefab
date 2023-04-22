@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 4857519184483666145}
   - component: {fileID: 4857519184483666146}
   - component: {fileID: 270137008216320182}
+  - component: {fileID: 4905451742924676049}
   m_Layer: 2
   m_Name: RocketGrenade
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4916,4 +4917,17 @@ MonoBehaviour:
   rocketSpeed: 40
   explosionForce: 400
   explosionRadius: 10
+  left: 0.8
   explosionLink: {fileID: 2766467984282158965, guid: 9061fd4c85b73ea4eb56f64d11952321, type: 3}
+--- !u!114 &4905451742924676049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197874540180083289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f854fadec9205664bb35f619a2d3b8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

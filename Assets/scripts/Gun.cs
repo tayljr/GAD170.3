@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public int minPitch = 90;
-    public int maxPitch = -50;
-    public float pitch = 0.0f;
-    public float yaw = 0.0f;
-    public float speedV = 2.0f;
-    public float speedH = 2.0f;
+    private bool loaded = true;
+    public Transform pointerLink;
+    public float maxTurnSpeed = 100;
+    public GameObject grenadePropLink;
+    public GameObject rocketGrenadeLink;
+    private GameObject currentGrenadeLink;
+    public GameObject spawnLink;
+    private Vector3 spawnLocation;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +21,29 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(pitch);
-        yaw += speedH * Input.GetAxis("Mouse X");
-        if(pitch > minPitch){
-            pitch = minPitch;
-        }else{if(pitch < maxPitch){
-            pitch = maxPitch;
+        Vector3 direction = pointerLink.position - transform.position;
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), maxTurnSpeed * Time.deltaTime);
+
+        spawnLocation = spawnLink.transform.position;
+        if(Input.GetMouseButtonDown(0)){
+            Shoot();
         }
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+        if(Input.GetKeyDown("r")){
+            Reload();
         }
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+    }
+    private void Shoot(){
+        if(loaded){
+            loaded = false;
+            grenadePropLink.SetActive(false);
+            //Instantiate(contestantPrefab,new Vector3(i*2,0,0),Quaternion.identity
+            currentGrenadeLink = Instantiate(rocketGrenadeLink, spawnLocation, transform.rotation);
+        }
+    }
+    private void Reload(){
+        if(loaded == false){
+            loaded = true;
+            grenadePropLink.SetActive(true);
+        }
     }
 }

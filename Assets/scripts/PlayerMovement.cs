@@ -18,10 +18,12 @@ public class PlayerMovement : MonoBehaviour
     public float speedV = 2.0f;
     public float yaw = 0.0f;
     public float pitch = 0.0f;
+    public float mass = 1.0f;
 
     // This must be linked to the object that has the "Character Controller" in the inspector. You may need to add this component to the object
     public CharacterController controller;
     private Vector3 velocity;
+    private Vector3 impact = Vector3.zero;
 
     // Customisable gravity
     public float gravity = -20f;
@@ -47,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
  
     private void Update()
     {
+        // apply impact force:
+        if (impact.magnitude > 0.2f) {
+            controller.Move(impact * Time.deltaTime);
+        }
+        impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
         // These lines let the script rotate the player based on the mouse moving
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
@@ -80,5 +87,15 @@ public class PlayerMovement : MonoBehaviour
  
         // Finally, it applies that vector it just made to the character
         controller.Move(move * speed * Time.deltaTime + velocity * Time.deltaTime);
+    }
+    //BOOM!
+    public void AddImpact(Vector3 location, float force){
+        Vector3 dir = this.transform.position - location;
+        dir.Normalize();
+        if (dir.y < 0){
+            dir.y = -dir.y;
+        }
+        float dist = Vector3.Distance(location, transform.position);
+        impact += dir.normalized * (force / mass / dist);
     }
 }

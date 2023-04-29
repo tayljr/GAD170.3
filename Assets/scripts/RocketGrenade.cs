@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RocketGrenade : MonoBehaviour
 {
-    public float rocketSpeed = 2;
-    public float explosionForce = 10f;
-    public float explosionRadius = 5f;
-    public float left = 0.8f;
+    private float rocketSpeed = 40f;
+    private float explosionForce = 400f;
+    private float explosionRadius = 10f;
     public GameObject explosionLink;
-    private GameObject thisExplosion;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,57 +18,15 @@ public class RocketGrenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //move forward every frame
         transform.Translate(Vector3.forward * rocketSpeed * Time.deltaTime);
     }
+
+    //function that creates an explosion when this collides with something
     void OnTriggerEnter(Collider collision){
-        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Weapon" || collision.gameObject.tag == "Terrain"){
-            //print(collision.gameObject);
-            this.GetComponent<Explosion>().onExplode(explosionLink, explosionForce, explosionRadius);
-            /*thisExplosion = Instantiate(explosionLink, transform.position, Quaternion.identity);
-            //thisExplosion.GetComponent<Explosion>().onExplode(explosionForce, explosionRadius);
-            
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
-            foreach (Collider hit in colliders)
-            {
-                if(hit.gameObject.tag == "Player"){
-                    hit.GetComponent<PlayerMovement>().AddImpact(explosionPos - transform.up * 0.35f - transform.right * left, explosionForce);
-                }else{
-                    if(hit.gameObject.tag == "Explosive"){
-                        
-                    }
-                    Rigidbody rb = hit.GetComponent<Rigidbody>();
-                    if(rb != null){
-                        rb.AddExplosionForce(explosionForce, explosionPos, explosionRadius, 3.0F);
-                        }
-                }
-            }
-            
-            Destroy(gameObject);
-            */
+        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Weapon" && collision.gameObject.tag != "HitBox" || collision.gameObject.tag == "Terrain"){
+            //Debug.Log(collision.gameObject);
+            this.GetComponent<Explosion>().onExplode(explosionLink, transform.position, explosionForce, explosionRadius);
         }
     }
-    /*
-    public void onExplode(){
-            thisExplosion = Instantiate(explosionLink, transform.position, Quaternion.identity);
-            //thisExplosion.GetComponent<Explosion>().onExplode(explosionForce, explosionRadius);
-            
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
-            foreach (Collider hit in colliders)
-            {
-                if(hit.gameObject.tag == "Player"){
-                    hit.GetComponent<PlayerMovement>().AddImpact(explosionPos - transform.up * 0.35f - transform.right * left, explosionForce);
-                }else{
-                    if(hit.gameObject.tag == "Explosive"){
-                        hit.GetC
-                    }
-                    Rigidbody rb = hit.GetComponent<Rigidbody>();
-                    if(rb != null){
-                        rb.AddExplosionForce(explosionForce, explosionPos, explosionRadius, 3.0F);
-                        }
-                }
-            }
-            Destroy(gameObject);
-    }*/
 }

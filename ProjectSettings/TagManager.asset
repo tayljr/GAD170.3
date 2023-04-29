@@ -9,6 +9,7 @@ TagManager:
   - Recorder
   - Projectile
   - Explosive
+  - HitBox
   layers:
   - Default
   - TransparentFX

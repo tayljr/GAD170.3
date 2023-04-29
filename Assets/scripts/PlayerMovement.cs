@@ -13,11 +13,11 @@ public class PlayerMovement : MonoBehaviour
     // The mouse will let you turn the object, and therefore, the camera.
 
     // These variables (visible in the inspector) are for you to set up to match the right feel
-    public float speed = 12f;
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
-    public float yaw = 0.0f;
-    public float pitch = 0.0f;
+    private float speed = 12f;
+    private float speedH = 2.0f;
+    private float speedV = 2.0f;
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
     public float mass = 2.0f;
 
     // This must be linked to the object that has the "Character Controller" in the inspector. You may need to add this component to the object
@@ -26,16 +26,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 impact = Vector3.zero;
 
     // Customisable gravity
-    public float gravity = -20f;
+    private float gravity = -20f;
 
     // Tells the script how far to keep the object off the ground
-    public float groundDistance = 0.4f;
+    private float groundDistance = 0.4f;
 
     // So the script knows if you can jump!
     private bool isGrounded;
 
     // How high the player can jump
-    public float jumpHeight = 2f;
+    private float jumpHeight = 4f;
 
     private void Start()
     {
@@ -49,11 +49,8 @@ public class PlayerMovement : MonoBehaviour
  
     private void Update()
     {
-        // apply impact force:
-        if (impact.magnitude > 0.2f) {
-            //controller.Move(impact * Time.deltaTime);
-        }
         impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+
         // These lines let the script rotate the player based on the mouse moving
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
@@ -88,7 +85,8 @@ public class PlayerMovement : MonoBehaviour
         // Finally, it applies that vector it just made to the character
         controller.Move(move * speed * Time.deltaTime + velocity * Time.deltaTime + impact * Time.deltaTime);
     }
-    //BOOM!
+
+    //a function to add impact force to the player movement. used for explosions
     public void AddImpact(Vector3 location, float force){
         Vector3 dir = this.transform.position - location;
         dir.Normalize();
@@ -96,8 +94,8 @@ public class PlayerMovement : MonoBehaviour
             dir.y = -dir.y;
         }
         float dist = Vector3.Distance(location, transform.position);
-        Debug.Log(force + " " + mass + " " + " " + dist);
-        Debug.Log(force / mass / dist);
+        //Debug.Log(force + " " + mass + " " + " " + dist);
+        //Debug.Log(force / mass / dist);
         impact += dir.normalized * (force / mass / dist);
     }
 }

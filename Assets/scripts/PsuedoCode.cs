@@ -69,4 +69,5 @@ if player is touching object then increase size of popup to max
 if player is touching object and presses e then activate tutorial, deactivate chactater controller and deactivate itself
 if player is not touching object then decreas size of popup to min
 when this object is disabled shrink popup to minimum
-when video finishes activate the item linked, disable the tutorial and enable the controller
+when video finishes activate the item linked, disable the tutorial and enable the controller 
+*/
